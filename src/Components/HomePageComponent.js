@@ -15,7 +15,7 @@ const HomePageComponent = () => {
     <div>
       <h1>Hello this is our Home Page</h1>
 
-      <Button variant="secondary" onClick={() => handlePageChange()}>Go To Profile Page</Button>{' '}
+      <Button variant="secondary" onClick={handlePageChange}>Go To Profile Page</Button>{' '}
     </div>
   )
 }
