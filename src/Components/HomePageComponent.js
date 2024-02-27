@@ -9,7 +9,7 @@ const HomePageComponent = () => {
     const [userInfo, setUserInfo] = useState({}); //userInfo is a state variable set to an empty object
     const [newPerson, setNewPerson] = useState(true); //newPerson is a state variable set to a boolean
 
-    let data = useContext(UserContext)
+    let data = useContext(UserContext); //useContext takes in the parameter of Context (UserContext) and we are storing the values inside of data
 
     const navigate = useNavigate(); //Reacts-router-dom's method for changing URL locations
 
@@ -27,6 +27,8 @@ const HomePageComponent = () => {
             const fetchedData = await getUserData();
             console.log(fetchedData);
             setUserInfo(fetchedData);
+
+            // we're passing in fetchedData through our setter function to set the value of user to our fetchedData
             data.setUser(fetchedData);
         }
 
