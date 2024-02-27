@@ -1,12 +1,15 @@
 //rafce short hand for react arrow function component export
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
 import { getUserData } from '../DataServices/DataServices';
+import UserContext from '../UserContext/UserContext';
 
 const HomePageComponent = () => {
     const [userInfo, setUserInfo] = useState({}); //userInfo is a state variable set to an empty object
     const [newPerson, setNewPerson] = useState(true); //newPerson is a state variable set to a boolean
+
+    let data = useContext(UserContext)
 
     const navigate = useNavigate(); //Reacts-router-dom's method for changing URL locations
 
@@ -24,6 +27,7 @@ const HomePageComponent = () => {
             const fetchedData = await getUserData();
             console.log(fetchedData);
             setUserInfo(fetchedData);
+            data.setUser(fetchedData);
         }
 
         getData();
